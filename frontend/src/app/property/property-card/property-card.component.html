@@ -1,1 +1,22 @@
-<h1>Hello Successful!!</h1>
+<div class="card">
+  <div class="img-wrapper">
+    <img *ngIf="property.image" src="assets/images/{{property.image}}.jpg" class="card-img-top common-img-style">
+    <img *ngIf="!property.image" src="assets/images/default-house.png" class="card-img-top common-img-style">
+    <ul class="list-inline member-icons animate" style="display: flex;
+    justify-content: center;">
+      <li class="list-inline-items">
+        <button class="btn btn-primary" routerLink="/property-detail/{{property.id}}"><i class="fa-solid fa-pen-to-square"></i></button>
+      </li>
+      <li class="list-inline-items" style="margin-left: 5px;">
+        <button class="btn btn-primary"><i class="fa-solid fa-address-book"></i></button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-body p-2">
+    <p>{{property.name}}</p>
+    <p>{{property.type}}</p>
+    <p>{{property.price}}</p>
+
+  </div>
+</div>
