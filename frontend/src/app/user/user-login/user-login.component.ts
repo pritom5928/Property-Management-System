@@ -16,9 +16,11 @@ export class UserLoginComponent implements OnInit {
   onLogin(loginForm: NgForm){
     const user = this.authService.authUser(loginForm.value);
     if(user){
+
       console.log("Login successful");
     }
     else{
+
       console.log("Login not successful");
     }
   }
