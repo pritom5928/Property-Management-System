@@ -28,6 +28,8 @@ export class AddPropertyComponent implements OnInit {
 
   property = new Property();
 
+  cityList: any;
+
   propertyView :IPropertybase = {
     id: null,
     name: null,
@@ -37,12 +39,17 @@ export class AddPropertyComponent implements OnInit {
     ftype: null,
     bhk: null,
     builtarea: null,
-    city: null,
+    city: '',
     rtm: null
   };
 
   ngOnInit() {
     this.CreateAddPropertyForm();
+    this.housingService.getAllCities().subscribe(data => {
+      debugger;
+      this.cityList = data;
+      console.log(data);
+    });
   }
 
   CreateAddPropertyForm(){

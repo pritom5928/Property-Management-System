@@ -35,4 +35,8 @@ export class HousingService {
   addProperty(property: Property){
     localStorage.setItem("newProp", JSON.stringify(property));
   }
+
+  getAllCities(): Observable<any>{
+    return this.http.get<any>('https://localhost:5001/api/City/GetAll');
+  }
 }

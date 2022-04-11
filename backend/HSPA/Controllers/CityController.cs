@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HSPA.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,14 +8,21 @@ using System.Threading.Tasks;
 
 namespace HSPA.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CityController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly AppDbContext _db;
+        public CityController(AppDbContext db)
         {
-            return new string[] { "Atlanta", "Toronto", "Chelsea", "Barcelona", "boston", "lokkura" };
+            _db = db;
+        }
+
+        [HttpGet]
+        public ActionResult GetAll()
+        {
+            var cities = _db.Cities.ToList();
+            return Ok(cities);
         }
 
     }
