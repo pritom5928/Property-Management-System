@@ -2,7 +2,7 @@ export interface IProperty{
   id: number,
   sellrent: number,
   name: string,
-  type: string,
+  ptype: string,
   price: number,
   image?: string
 }

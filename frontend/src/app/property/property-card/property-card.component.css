@@ -7,9 +7,17 @@ input[type=button] {
   box-shadow: none !important;
 }
 
+.card{
+  min-height: 400px;
+}
 .common-img-style {
   height: 200px;
   width: 300px;
+}
+
+.font-highlight{
+  font-family: italic;
+  color: red;
 }
 
 .img-wrapper {
