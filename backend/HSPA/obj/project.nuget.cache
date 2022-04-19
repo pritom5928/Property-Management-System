@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "caKKkSXBT+1xbT3hDAS+/xKjrhD0kfFx535ImaIdeZ1y6Pas6MFyP2lBWTsTyH0LNaglqAQTJxPB407wiNiUcw==",
+  "dgSpecHash": "mdTfRKLTBv3G5+XbgclS8W6OaCiwgWGfFpQJtFODPlhFGynTXriBGEya3RfZlVnSsbd2DSjbrVsyHFL2RqnaSg==",
   "success": true,
   "projectFilePath": "C:\\Self files\\Full Stack study\\Angular\\HSPA\\backend\\HSPA\\HSPA.csproj",
   "expectedPackageFiles": [
@@ -106,8 +106,7 @@
     "C:\\Users\\user\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
