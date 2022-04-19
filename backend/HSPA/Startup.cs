@@ -1,4 +1,6 @@
 using HSPA.Data;
+using HSPA.Data.Repo;
+using HSPA.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +40,8 @@ namespace HSPA
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HSPA", Version = "v1" });
             });
             services.AddCors();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

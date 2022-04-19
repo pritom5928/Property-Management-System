@@ -1,4 +1,6 @@
 ﻿using HSPA.Data;
+using HSPA.Data.Repo;
+using HSPA.Interfaces;
 using HSPA.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,52 +16,40 @@ namespace HSPA.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
-        private readonly AppDbContext _db;
-        public CityController(AppDbContext db)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CityController(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            var cities = await _db.Cities.ToListAsync();
+            var cities = await _unitOfWork.CityRepository.GetCitiesAsync();
             return Ok(cities);
         }
 
-        [HttpPost("{cityName}")]
-        public async Task<IActionResult> AddCity(string cityName)
-        {
-            var city = new City
-            {
-                Name = cityName
-            };
-
-            await _db.Cities.AddAsync(city);
-            await _db.SaveChangesAsync();
-
-            return Ok(city);
-        }
 
         [HttpPost("post")]
         public async Task<IActionResult> AddCity(City city)
         {
 
-            await _db.Cities.AddAsync(city);
-            await _db.SaveChangesAsync();
+             _unitOfWork.CityRepository.AddCity(city);
+            await _unitOfWork.SaveAsync();
 
-            return Ok(city);
+            return StatusCode(201);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCity(int id)
         {
-            var city = await _db.Cities.FindAsync(id);
+             _unitOfWork.CityRepository.DeleteCity(id);
 
-            _db.Cities.Remove(city);
-            await _db.SaveChangesAsync();
+            await _unitOfWork.SaveAsync();
 
             return Ok(id);
         }
     }
+
 }
