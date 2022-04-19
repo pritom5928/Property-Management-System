@@ -1,5 +1,6 @@
 ﻿using HSPA.Data;
 using HSPA.Data.Repo;
+using HSPA.Dtos;
 using HSPA.Interfaces;
 using HSPA.Models;
 using Microsoft.AspNetCore.Http;
@@ -32,8 +33,12 @@ namespace HSPA.Controllers
 
 
         [HttpPost("post")]
-        public async Task<IActionResult> AddCity(City city)
+        public async Task<IActionResult> AddCity(CityDto cityDto)
         {
+            var city = new City
+            {
+                Name = cityDto.Name
+            };
 
              _unitOfWork.CityRepository.AddCity(city);
             await _unitOfWork.SaveAsync();
