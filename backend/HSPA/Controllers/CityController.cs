@@ -28,6 +28,14 @@ namespace HSPA.Controllers
         public async Task<ActionResult> GetAll()
         {
             var cities = await _unitOfWork.CityRepository.GetCitiesAsync();
+
+            var cityDtos = cities.Select(s => new CityDto
+            {
+                Id = s.Id,
+                Name = s.Name
+
+            }).ToList();
+
             return Ok(cities);
         }
 
@@ -40,7 +48,7 @@ namespace HSPA.Controllers
                 Name = cityDto.Name
             };
 
-             _unitOfWork.CityRepository.AddCity(city);
+            _unitOfWork.CityRepository.AddCity(city);
             await _unitOfWork.SaveAsync();
 
             return StatusCode(201);
@@ -49,7 +57,7 @@ namespace HSPA.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCity(int id)
         {
-             _unitOfWork.CityRepository.DeleteCity(id);
+            _unitOfWork.CityRepository.DeleteCity(id);
 
             await _unitOfWork.SaveAsync();
 
