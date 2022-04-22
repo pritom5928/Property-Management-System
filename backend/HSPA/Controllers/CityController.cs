@@ -53,10 +53,17 @@ namespace HSPA.Controllers
         [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdateCity(int id, CityDto updateCityDto)
         {
+            if (id != updateCityDto.Id)
+                return BadRequest("Update not allowed");
+
             var getCity = await _unitOfWork.CityRepository.FindAsync(id);
+
+            if(getCity == null)
+                return BadRequest("Update not allowed");
 
             _mapper.Map(updateCityDto, getCity);
 
+            //throw new UnauthorizedAccessException();
             await _unitOfWork.SaveAsync();
 
             return StatusCode(200);
