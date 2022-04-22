@@ -28,6 +28,11 @@ namespace HSPA.Data.Repo
 
         }
 
+        public async Task<City> FindAsync(int id)
+        {
+            return await _db.Cities.FindAsync(id);
+        }
+
         public async Task<IEnumerable<City>> GetCitiesAsync()
         {
             return await _db.Cities.ToListAsync();

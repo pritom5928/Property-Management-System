@@ -13,5 +13,6 @@ namespace HSPA.Interfaces
         void AddCity(City city);
         void DeleteCity(int cityId);
 
+        Task<City> FindAsync(int id);
     }
 }

@@ -1,5 +1,6 @@
 using HSPA.Data;
 using HSPA.Data.Repo;
+using HSPA.Helpers;
 using HSPA.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,12 +35,14 @@ namespace HSPA
             var config = Configuration.GetConnectionString("Default");
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(config));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HSPA", Version = "v1" });
             });
             services.AddCors();
+
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
