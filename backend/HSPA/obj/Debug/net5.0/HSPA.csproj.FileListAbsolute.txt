@@ -63,3 +63,4 @@ C:\Self files\Full Stack study\Angular\HSPA\backend\HSPA\obj\Debug\net5.0\ref\HS
 C:\Self files\Full Stack study\Angular\HSPA\backend\HSPA\obj\Debug\net5.0\HSPA.pdb
 C:\Self files\Full Stack study\Angular\HSPA\backend\HSPA\obj\Debug\net5.0\HSPA.genruntimeconfig.cache
 C:\Self files\Full Stack study\Angular\HSPA\backend\HSPA\obj\Debug\net5.0\HSPA.csproj.AssemblyReference.cache
+C:\Self files\Full Stack study\Angular\HSPA\backend\HSPA\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

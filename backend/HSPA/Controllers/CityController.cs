@@ -4,6 +4,7 @@ using HSPA.Data.Repo;
 using HSPA.Dtos;
 using HSPA.Interfaces;
 using HSPA.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +16,8 @@ using System.Threading.Tasks;
 
 namespace HSPA.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
-    public class CityController : ControllerBase
+    [Authorize]
+    public class CityController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -29,6 +29,7 @@ namespace HSPA.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult> GetAll()
         {
             var cities = await _unitOfWork.CityRepository.GetCitiesAsync();

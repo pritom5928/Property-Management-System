@@ -17,6 +17,7 @@ namespace HSPA.Data
         }
 
         public ICityRepository CityRepository => new CityRepository(_db);
+        public IUserRepository UserRepository => new UserRepository(_db);
 
 
         public async Task<bool> SaveAsync()
