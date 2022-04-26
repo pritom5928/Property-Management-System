@@ -48,7 +48,7 @@ namespace HSPA
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HSPA", Version = "v1" });
             });
-            services.AddCors();
+            services.AddCors(); 
 
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 

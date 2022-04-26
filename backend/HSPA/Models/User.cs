@@ -12,6 +12,7 @@ namespace HSPA.Models
         [Required]
         public string UserName { get; set; }
         [Required]
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
+        public byte[] PasswordKey { get; set; }
     }
 }

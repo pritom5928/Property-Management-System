@@ -19,7 +19,17 @@ namespace HSPA.Data.Repo
 
         public async Task<User> Authenticate(string userName, string password)
         {
-            return await _db.Users.FirstOrDefaultAsync(f => f.UserName == userName && f.Password == password);
+            return await _db.Users.FirstOrDefaultAsync(f => f.UserName == userName /*&& f.Password == password*/);
+        }
+
+        public void Register(string userName, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UserAlreadyExist(string userName)
+        {
+            throw new NotImplementedException();
         }
     }
 }
