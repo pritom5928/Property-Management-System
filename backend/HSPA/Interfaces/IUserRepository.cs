@@ -8,7 +8,7 @@ namespace HSPA.Interfaces
 {
     public interface IUserRepository
     {
-        Task<User> Authenticate(string userName, string password);
+        Task<User> Authenticate(string userName, string passwordText);
 
         void Register(string userName, string password);
 

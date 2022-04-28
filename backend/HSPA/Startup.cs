@@ -81,6 +81,10 @@ namespace HSPA
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseHsts();
+            app.UseHttpsRedirection();
+
             app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             //added for jwt authentication

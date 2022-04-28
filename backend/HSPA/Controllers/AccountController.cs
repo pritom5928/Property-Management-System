@@ -31,7 +31,7 @@ namespace HSPA.Controllers
         {
             var user = await _unitOfWork.UserRepository.Authenticate(logInReqDto.UserName, logInReqDto.Password);
 
-            if (user == null)
+            if (user == null || user.PasswordKey == null)
                 return Unauthorized();
 
             var userResponse = new LogInResDto
@@ -43,6 +43,21 @@ namespace HSPA.Controllers
             return Ok(userResponse);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Register(LogInReqDto logInReqDto)
+        {
+            if (string.IsNullOrEmpty(logInReqDto.UserName))
+                return BadRequest("Username required");
+
+            if (await _unitOfWork.UserRepository.UserAlreadyExist(logInReqDto.UserName))
+                return BadRequest("User already exists, Please try something else");
+
+            _unitOfWork.UserRepository.Register(logInReqDto.UserName, logInReqDto.Password);
+
+            await _unitOfWork.SaveAsync();
+
+            return StatusCode(201);
+        }
 
         private string CreateJWT(User user)
         {
